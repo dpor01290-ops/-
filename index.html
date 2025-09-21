@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Вечер в ресторане — уютная компания сегодня</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Красивый вечер в ресторане: хорошая компания, лёгкая атмосфера, всё организуем. Приходи с подружкой. Комфорт и поддержка расходов.">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root{
+      --bg1:#0f1224;
+      --bg2:#1b1f3a;
+      --acc:#c8a96b;
+      --acc2:#e7d5a7;
+      --text:#f7f7fb;
+      --muted:#cfd3e2;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --glow:0 10px 40px rgba(200,169,107,.25);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, #2a2f56 0%, transparent 60%),
+        radial-gradient(1000px 700px at -20% 20%, #1e2244 0%, transparent 60%),
+        linear-gradient(160deg,var(--bg1),var(--bg2));
+      letter-spacing:.2px;
+    }
+    .wrap{max-width:1080px;margin:0 auto;padding:28px}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{
+      display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));
+      box-shadow:var(--glow);
+    }
+    .brand span{font-weight:700;letter-spacing:.5px}
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;margin-top:18px
+    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{
+      background:backdrop-filter: blur(10px);
+      background-color:var(--card);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      padding:28px;
+    }
+    h1{
+      font-size:clamp(28px,4.5vw,46px);
+      line-height:1.1;margin:6px 0 14px;
+    }
+    .subtitle{color:var(--muted);font-size:clamp(14px,2.2vw,18px);line-height:1.55}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 8px}
+    .badge{
+      border:1px solid var(--stroke);padding:8px 12px;border-radius:999px;
+      font-size:13px;color:var(--muted);background:rgba(255,255,255,.03)
+    }
+    .points{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+    @media (max-width:700px){.points{grid-template-columns:1fr}}
+    .point{
+      display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px dashed var(--stroke);border-radius:14px
+    }
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:var(--glow);flex:0 0 12px;margin-top:5px
+    }
+    .side{
+      min-height:260px;
+      background:
+        radial-gradient(300px 300px at 20% 20%, rgba(231,213,167,.25), transparent 60%),
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      display:flex;align-items:center;justify-content:center;text-align:center;padding:22px
+    }
+    .side p{color:var(--muted);margin:0}
+    .section{margin:34px 0}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.grid3{grid-template-columns:1fr}}
+    .h3{font-weight:700;margin:0 0 10px;font-size:22px}
+    .muted{color:var(--muted);line-height:1.6}
+    .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){.steps{grid-template-columns:1fr}}
+    .step{position:relative;padding:18px;border:1px solid var(--stroke);border-radius:16px;background:rgba(255,255,255,.04)}
+    .step:before{
+      counter-increment:s;content:counter(s);
+      position:absolute;top:-12px;left:-12px;width:34px;height:34px;border-radius:10px;
+      display:grid;place-items:center;font-weight:700;
+      background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:var(--glow)
+    }
+    .cta{
+      display:block;width:100%;text-align:center;margin-top:8px;
+      padding:16px 22px;border-radius:14px;border:0;cursor:pointer;
+      font-weight:800;letter-spacing:.4px;text-decoration:none;color:#0e0e10;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) padding-box,
+        linear-gradient(135deg,var(--acc),var(--acc2)) border-box;
+      position:relative;isolation:isolate;box-shadow:var(--glow);
+    }
+    .cta .shine{
+      position:absolute;inset:0;border-radius:inherit;
+      background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.25) 35%,transparent 70%);
+      transform:translateX(-100%);animation:shine 2.4s infinite;
+      mix-blend-mode:soft-light;pointer-events:none
+    }
+    @keyframes shine{to{transform:translateX(100%)}}
+    .note{
+      font-size:13px;color:var(--muted);text-align:center;margin-top:12px
+    }
+    .reqs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    @media (max-width:700px){.reqs{grid-template-columns:1fr}}
+    .foot{opacity:.8;text-align:center;font-size:12px;margin:30px 0 6px;color:var(--muted)}
+    a{text-underline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Тёплый Вечер</span>
+      </a>
+    </header>
+
+    <main class="hero">
+      <section class="card">
+        <div class="badges">
+          <div class="badge">Сегодня</div>
+          <div class="badge">Ресторан</div>
+          <div class="badge">Лёгкая атмосфера</div>
+          <div class="badge">С подружкой</div>
+        </div>
+
+        <h1>Хочешь провести вечер красиво и без суеты?</h1>
+        <p class="subtitle">
+          Уютный ресторан, веселая компания, новые знакомства. Всё организуем:<br>
+          бронирование, трансфер при необходимости, приятные сюрпризы и <strong>поддержка расходов</strong>.
+          Приходи вместе с подружкой — так комфортнее и ещё веселее.
+        </p>
+
+        <div class="points">
+          <div class="point"><div class="dot"></div><div><strong>Комфорт и забота.</strong> Мы заранее продумываем детали, чтобы вечер прошёл легко.</div></div>
+          <div class="point"><div class="dot"></div><div><strong>Безопасная атмосфера.</strong> Уважение границ и позитивная компания.</div></div>
+          <div class="point"><div class="dot"></div><div><strong>Гибкое время.</strong> Если свободны сегодня — отлично. Подойдёт и другой день.</div></div>
+          <div class="point"><div class="dot"></div><div><strong>С подружкой.</strong> Приходите вдвоём — это всегда комфортнее.</div></div>
+        </div>
+      </section>
+
+      <aside class="side">
+        <p>
+          «Красивый вечер — это про лёгкость: вкусная еда, живое общение, тёплые эмоции.
+          Остальное мы берём на себя».
+        </p>
+      </aside>
+    </main>
+
+    <section class="section grid3">
+      <div class="card">
+        <div class="h3">Что будет</div>
+        <p class="muted">Ресторан/лаунж, лёгкая музыка, непринуждённая беседа, фотографии при желании.
+          Продолжительность 1,5–3 часа — по самочувствию и настроению.</p>
+      </div>
+      <div class="card">
+        <div class="h3">Организация</div>
+        <p class="muted">Бронь столика, встреча у входа, при необходимости — такси туда/обратно.
+          Чек за вечер — на нас. <em>Поддержка расходов</em> оговаривается заранее и прозрачно.</p>
+      </div>
+      <div class="card">
+        <div class="h3">Этика и комфорт</div>
+        <p class="muted">Вечер без ожиданий и давления. Уважение личных границ и доброжелательная атмосфера — правило №1.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="h3">Как это работает</div>
+        <div class="steps">
+          <div class="step">
+            <strong>Оставьте контакт</strong>
+            <p class="muted">Напишите в Telegram и укажите: имя, возраст, ваш @ник, имя подружки (если идёте вдвоём).</p>
+          </div>
+          <div class="step">
+            <strong>Согласуем детали</strong>
+            <p class="muted">Выберем время/место, подтвердим формат вечера и условия поддержки расходов.</p>
+          </div>
+          <div class="step">
+            <strong>Красиво проводим вечер</strong>
+            <p class="muted">Встречаемся у ресторана и наслаждаемся лёгкой атмосферой. Остальное — по желанию.</p>
+          </div>
+        </div>
+
+        <div style="max-width:560px;margin:18px auto 0">
+          <a class="cta" href="https://t.me/USERNAME" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+            Написать в Telegram
+            <span class="shine" aria-hidden="true"></span>
+          </a>
+          <div class="note">Убедительная просьба: приходить старше 18 лет. Лучше — вдвоём с подружкой.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="h3">Мини-требования</div>
+        <div class="reqs">
+          <div class="point"><div class="dot"></div><div>18+</div></div>
+          <div class="point"><div class="dot"></div><div>Аккуратный внешний вид</div></div>
+          <div class="point"><div class="dot"></div><div>Умение держать лёгкую беседу</div></div>
+          <div class="point"><div class="dot"></div><div>Желательно прийти с подружкой</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      © Тёплый Вечер. Мы за уважение, безопасность и хорошее настроение. Расходы вечера — на нас.
+    </footer>
+  </div>
+</body>
+</html>
