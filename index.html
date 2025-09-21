@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f0f2d, #1c1c44);
+      background: radial-gradient(circle at top, #2c2c54, #0f0f2d);
       color: #fff;
       display: flex;
       justify-content: center;
@@ -16,40 +16,78 @@
       height: 100vh;
       text-align: center;
       padding: 20px;
+      overflow: hidden;
+    }
+    /* декоративные точки */
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,215,0,0.7);
+      animation: blink 3s infinite;
+    }
+    .dot:nth-child(1){ top:15%; left:20%; animation-delay:0s;}
+    .dot:nth-child(2){ top:30%; right:25%; animation-delay:1s;}
+    .dot:nth-child(3){ bottom:20%; left:15%; animation-delay:2s;}
+    @keyframes blink {
+      0%,100% { opacity:0.2; transform:scale(1);}
+      50% { opacity:1; transform:scale(1.4);}
     }
     .box {
       max-width: 420px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 30px 20px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+      border-radius: 18px;
+      padding: 35px 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(8px);
     }
     h1 {
-      font-size: 24px;
-      margin-bottom: 15px;
+      font-size: 26px;
+      margin-bottom: 18px;
     }
     p {
       font-size: 16px;
-      margin-bottom: 25px;
-      line-height: 1.5;
+      margin-bottom: 28px;
+      line-height: 1.55;
     }
     a.button {
       display: inline-block;
-      padding: 14px 26px;
+      padding: 15px 30px;
       font-weight: bold;
-      border-radius: 10px;
-      background: linear-gradient(90deg, #f7d774, #e7b84c);
+      border-radius: 12px;
+      background: linear-gradient(90deg, #FFD700, #FFC300);
       color: #000;
       text-decoration: none;
-      transition: transform 0.2s;
+      box-shadow: 0 0 20px rgba(255,215,0,0.5);
+      position: relative;
+      overflow: hidden;
     }
-    a.button:hover {
-      transform: scale(1.05);
+    a.button::after {
+      content: "";
+      position: absolute;
+      top:0; left:-50%;
+      width:200%; height:100%;
+      background: linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+      transform: translateX(-100%);
+      animation: shine 2.5s infinite;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%);}
+      60% { transform: translateX(100%);}
+      100% { transform: translateX(100%);}
     }
   </style>
 </head>
 <body>
+  <!-- декоративные точки -->
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+
   <div class="box">
     <h1>Вечер сегодня 🎉</h1>
     <p>
@@ -59,7 +97,7 @@
       Возможна финансовая поддержка.  
       Если хочешь провести время качественно — пиши!
     </p>
-    <a class="button" href="https://t.me/USERNAME" target="_blank">Написать в Telegram</a>
+    <a class="button" href="https://t.me/ana11pp" target="_blank">Написать в Telegram</a>
   </div>
 </body>
 </html>
